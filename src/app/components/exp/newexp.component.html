@@ -1,0 +1,35 @@
+<div class="modal fade" id="newexpModal" tabindex="-1" aria-labelledby="newexpModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Cabecera del modal -->
+            <div class="modal-header">
+                <h4 class="modal-title">Añadir información</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <!-- Cuerpo del modal -->
+            <div class="modal-body">
+                <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+                    <div class="mb-3">
+                        <label for="nombreE" class="form-label">Nombre de la Empresa</label>
+                        <input type="text" class="form-control" id="nombreE" name="nombreE" [(ngModel)]="nombreE"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="imagen" class="form-label">Imagen:</label>
+                        <input type="file" class="form-control" id="imagen">
+                    </div>
+                    <div class="mb-3">
+                        <label for="descripcionE" class="form-label">Descripción de la Tarea:</label>
+                        <textarea class="form-control" id="descripcionE" name="descripcionE" [(ngModel)]="descripcionE"
+                            required rows="3"></textarea>
+                    </div>
+                    <!-- Pie del modal -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

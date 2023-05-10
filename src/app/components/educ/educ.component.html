@@ -1,0 +1,66 @@
+<div class="container-lg mw-75 shadow-lg bg-body rounded px-0">
+    <div class="accordion" id="educationAccordion">
+        <div class="card border border-light shadow-lg bg-body rounded">
+            <div class="card-header ps-5 pe-0 d-flex align-items-center justify-content-between">
+                <h5 class="card-title mb-0">Educación</h5>
+                <div class= pe-3>
+                    <button class="btn btn-link btn-rounded" data-bs-toggle="modal"
+                    data-bs-target="#neweducModal" *ngIf="isLogged"><i
+                            class="bi bi-plus-circle"></i></button>
+                    <button class="btn btn-link btn-rounded ms-auto" data-bs-toggle="collapse"
+                        data-bs-target="#educationCollapse" aria-expanded="true" aria-controls="educationCollapse"><i
+                            class="bi bi-justify"></i></button>
+                </div>
+            </div>
+            <div id="educationCollapse" class="collapse show" aria-labelledby="educationAccordion"
+                data-bs-parent="#educationAccordion" *ngFor="let Educacion of educacion">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">{{Educacion.nombreE}}</h5>
+                            <div>
+                                <button type="button" class="btn btn-link btn-rounded" data-bs-toggle="modal"
+                                data-bs-target="#editeducModal" *ngIf="isLogged" [attr.data-bs-id]="Educacion.id"><i
+                                        class="bi bi-pencil-square"></i></button>
+                                <button type="button" class="btn btn-link btn-rounded trash-toggle"  data-bs-toggle="modal" data-bs-target="#EducDeleteModal"  *ngIf="isLogged"><i
+                                        class="bi bi-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                                <img src="../img/logo/Logo - Argentina Programa - black.png" alt="..."
+                                    style="height: 120px; width: 100%;">
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                {{Educacion.descripcionE}}
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="modal fade" id="EducDeleteModal" tabindex="-1" role="dialog" aria-labelledby="EducDeleteModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="EducDeleteModalLabel">Confirmar eliminación</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Cerrar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            ¿Está seguro de que desea eliminar esta experiencia?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary"
+                                data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                                (click)="delete(Educacion.id)">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

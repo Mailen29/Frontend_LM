@@ -1,0 +1,56 @@
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Experiencia } from 'src/app/model/experiencia';
+import { SExperienciaService } from 'src/app/service/s-experiencia.service';
+import { TokenService } from 'src/app/service/token.service';
+
+@Component({
+  selector: 'app-exp',
+  templateUrl: './exp.component.html',
+  styleUrls: ['./exp.component.css']
+})
+export class ExpComponent implements OnInit {
+
+
+
+  expe: Experiencia[] = [];
+
+  isLogged = false;
+
+
+  constructor(
+    private sExperiencia: SExperienciaService,
+    private tokenService: TokenService,
+    private cdRef: ChangeDetectorRef,
+  ) { }
+
+  ngOnInit(): void {
+    this.cargarExperiencia();
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
+
+  }
+
+  cargarExperiencia(): void {
+    this.sExperiencia.lista().subscribe(data => {
+      this.expe = data;
+      this.cdRef.detectChanges();
+    });
+  }
+
+
+  delete(id?: number) {
+    if (id != undefined) {
+      this.sExperiencia.delete(id).subscribe(
+        data => {
+          this.cargarExperiencia();
+        }, err => {
+          alert("No se pudo borrar la experiencia");
+        }
+      );
+    }
+  }
+
+}

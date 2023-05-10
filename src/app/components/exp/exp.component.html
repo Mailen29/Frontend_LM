@@ -1,0 +1,68 @@
+<div class="container-lg mw-75 shadow-lg bg-body rounded px-0">
+    <div class="accordion" id="experienciaAccordion">
+        <div class="card border border-light shadow-lg bg-body rounded">
+            <div class="card-header ps-5 pe-0 d-flex align-items-center justify-content-between">
+                <h5 class="card-title mb-0">Experiencia Laboral</h5>
+                <div class=pe-3>
+                    <button type="button" class="btn btn-link btn-rounded" data-bs-toggle="modal"
+                        data-bs-target="#newexpModal" *ngIf="isLogged">
+                        <i class="bi bi-plus-circle"></i>
+                    </button>
+                    <button class="btn btn-link btn-rounded ms-auto" data-bs-toggle="collapse"
+                        data-bs-target="#experienciaCollapse" aria-expanded="true"
+                        aria-controls="experienciaCollapse"><i class="bi bi-justify"></i></button>
+                </div>
+            </div>
+            <div id="experienciaCollapse" class="collapse show" aria-labelledby="experienciaAccordion"
+                data-bs-parent="#experienciaAccordion" *ngFor="let Experiencia of expe">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">{{Experiencia.nombreE}}</h5>
+                            <div>
+                                <button type="button" class="btn btn-link btn-rounded" data-bs-toggle="modal"
+                                data-bs-target="#editexpModal" *ngIf="isLogged" [attr.data-bs-id]="Experiencia.id"><i
+                                        class="bi bi-pencil-square" ></i></button>
+                                <button type="button" class="btn btn-link btn-rounded trash-toggle"
+                                    data-bs-toggle="modal" data-bs-target="#DeleteModal"  *ngIf="isLogged"><i
+                                        class="bi bi-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                                <img src="../img/logo/Logo - Argentina Programa - black.png" alt="..."
+                                    style="height: 120px; width: 100%;">
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                {{Experiencia.descripcionE}}
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="DeleteModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="DeleteModalLabel">Confirmar eliminación</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                ¿Está seguro de que desea eliminar esta experiencia?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                                    (click)="delete(Experiencia.id)">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

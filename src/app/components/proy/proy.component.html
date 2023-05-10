@@ -1,0 +1,55 @@
+<div class="container-lg mw-75 shadow-lg bg-body rounded px-0">
+    <div class="accordion" id="proyectoAccordion">
+        <div class="card border border-light shadow-lg bg-body rounded">
+            <div class="card-header ps-5 pe-0 d-flex align-items-center justify-content-between">
+                <h5 class="card-title mb-0">Proyectos</h5>
+                <div class=pe-3>
+                    <button class="btn btn-link btn-rounded me-auto" id="trashBtn"><i
+                            class="bi bi-plus-circle"></i></button>
+                    <button class="btn btn-link btn-rounded ms-auto" data-bs-toggle="collapse"
+                        data-bs-target="#proyectoCollapse" aria-expanded="true" aria-controls="proyectoCollapse"><i
+                            class="bi bi-justify"></i></button>
+                </div>
+            </div>
+            <div id="proyectoCollapse" class="collapse show" aria-labelledby="proyectoAccordion"
+                data-bs-parent="#proyectoAccordion">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">Elemento I</h5>
+                            <div>
+                                <button type="button" class="btn btn-link btn-rounded"><i
+                                        class="bi bi-pencil-square"></i></button>
+                                <button type="button" class="btn btn-link btn-rounded trash-toggle"><i
+                                        class="bi bi-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1 ms-3">
+                                This is some content from a media component. You can replace this with any content and
+                                adjust it as needed.
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">Elemento II</h5>
+                            <div>
+                                <button type="button" class="btn btn-link btn-rounded"><i
+                                        class="bi bi-pencil-square"></i></button>
+                                <button type="button" class="btn btn-link btn-rounded trash-toggle"><i
+                                        class="bi bi-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1 ms-3">
+                                This is some content from a media component. You can replace this with any content and
+                                adjust it as needed.
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
